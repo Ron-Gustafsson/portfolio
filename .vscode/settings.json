@@ -1,0 +1,26 @@
+{
+  // Uses Prettier as the default formatter for this project.
+  // Prettier formats the file automatically when Ctrl + S is us
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Automatically formats the file every time it is saved.
+  "editor.formatOnSave": true,
+  // Runs ESLint automatic fixes when the file is saved.
+  // ESLint fixes automatically fixable problems when Ctrl + S is used.
+  // "explicit" means fixes are applied as part of an explicit save action.
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // File types that the VS Code ESLint extension should validate.
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  // Do not auto-format JSON with Comments files.
+  // This keeps manually added spacing and comments readable.
+  "[jsonc]": {
+    "editor.formatOnSave": false
+  }
+}

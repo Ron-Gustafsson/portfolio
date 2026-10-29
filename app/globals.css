@@ -1,0 +1,101 @@
+/* Global styles and design tokens for the portfolio. */
+
+/* Loads Tailwind CSS v4 into this stylesheet.
+   This enables Tailwind utility classes such as:
+   flex, grid, px-4, text-xl, bg-background, etc. */
+@import "tailwindcss";
+
+:root {
+  /* CSS custom properties (muuttujat) */
+  --background: #0c090a; /* Midnight – main background */
+  --foreground: #ffffff; /* White – primary text */
+  --foreground-secondary: #e5e4e2; /* Platinum – secondary text */
+  --surface: #25383c; /* Dark Slate Grey – cards and secondary surfaces */
+  --accent: #00ffff; /* Cyan – primary accent */
+  --accent-secondary: #ffa62f; /* Cantaloupe – secondary accent */
+  --error: #f70d1a; /* Ferrari Red – errors and warnings */
+}
+
+/* @theme inline is a Tailwind CSS v4 feature. It maps our own CSS variables to Tailwind theme values.
+
+   Example:
+   --color-background below allows us to write:
+
+   className="bg-background"
+
+   instead of:
+
+   background: var(--background); */
+
+@theme inline {
+  /* Makes --background available as:
+     bg-background, text-background, border-background, etc. */
+  --color-background: var(--background);
+
+  /* Makes --foreground available as:
+     text-foreground, bg-foreground, etc. */
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-error: var(--error);
+
+  /* Connects the Geist Sans font from layout.tsx
+     to Tailwind's font-sans utility.
+
+     This means:
+     className="font-sans"
+     will use Geist Sans. */
+  --font-sans: var(--font-geist-sans);
+
+  /* Connects Geist Mono to Tailwind's font-mono utility.
+
+     This is useful later for code-like UI,
+     technical metadata and the planned ron.ts element. */
+  --font-mono: var(--font-geist-mono);
+}
+
+/* =========================================================
+   BASE ELEMENT SETTINGS
+   ========================================================= */
+
+/* Applies border-box sizing to every element.
+
+   Normally an element's width can grow when padding
+   or borders are added.
+
+   border-box makes the declared width include:
+   content + padding + border.
+
+   This makes layout sizing much easier to predict. */
+* {
+  box-sizing: border-box;
+}
+
+/* Enables smooth scrolling when navigating to page sections.
+
+   Example:
+   clicking a link to #projects will scroll smoothly
+   instead of jumping instantly. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global styles for the entire page body. */
+body {
+  /* Removes the browser's default outer margin.
+     Browsers usually add approximately 8px by default. */
+  margin: 0;
+
+  /* Sets the entire site's main background color. */
+  background: var(--background);
+
+  /* Sets the default text color. */
+  color: var(--foreground);
+
+  /* Uses the Geist Sans font loaded in layout.tsx.
+     sans-serif is the fallback if the custom font
+     cannot be loaded for some reason. */
+  font-family: var(--font-geist-sans), sans-serif;
+}
